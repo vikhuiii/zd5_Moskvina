@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.WelcomePage"  
+             Title="Welcome">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/mystyles.css" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="#2d2d2d">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок Welcome -->
+            <Label Grid.Row="0" 
+                   x:Name="welcomeTitle" 
+                   Text="Welcome" 
+                   StyleId="welcomeTitle"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"
+                   Margin="0,40,0,20"/>
+
+            <!-- Поле Username -->
+            <Entry Grid.Row="1" 
+                   x:Name="usernameEntry" 
+                   StyleId="usernameEntry"
+                   Placeholder="Username"
+                   BackgroundColor="White"
+                   TextColor="#000000"
+                   Margin="20,10,20,5"
+                   HeightRequest="40"/>
+
+            <!-- Поле Password -->
+            <Entry Grid.Row="3" 
+                   x:Name="passwordEntry" 
+                   StyleId="passwordEntry"
+                   Placeholder="Password"
+                   IsPassword="True"
+                   BackgroundColor="White"
+                   TextColor="#000000"
+                   Margin="20,5,20,10"
+                   HeightRequest="40"/>
+
+            <!-- Кнопка Sign In -->
+            <Button Grid.Row="4" 
+                    x:Name="signInButton" 
+                    StyleId="signInButton"
+                    Text="Sign in"
+                    BackgroundColor="#dc3545"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    CornerRadius="5"
+                    Margin="20,20,20,10"
+                    HeightRequest="45"
+                    Clicked="OnSignInClicked"/>
+
+            <!-- Нижняя строка с Checkbox и I forgot! -->
+            <Grid Grid.Row="5" Margin="20,5,20,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+               
+                <CheckBox Grid.Column="0" 
+                          x:Name="rememberCheck" 
+                          StyleId="rememberCheck"
+                          Color="White" VerticalOptions="Start"/>
+
+                <Label Grid.Column="1" 
+                       x:Name="rememberLabel" 
+                       StyleId="rememberLabel"
+                       Text=" Remember me"
+                       TextColor="White"
+                       FontSize="14"/>
+
+                <Label Grid.Column="2" 
+                       x:Name="forgotLabel" 
+                       StyleId="forgotLabel"
+                       Text="I forgot!"
+                       TextColor="White"
+                       FontSize="14"
+                       TextDecorations="Underline"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

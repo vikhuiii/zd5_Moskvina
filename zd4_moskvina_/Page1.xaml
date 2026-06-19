@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="zd4_moskvina_.Page1"
              Title="Кредитный калькулятор">
-    <ContentPage.Content>
 
-        <Grid>
+    <ContentPage.Resources>
+        <StyleSheet Source="/mystyles.css" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="#2d2d2d" Padding="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -13,20 +17,50 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <!--по строчкам добавляю label и entry-->
-            <StackLayout Grid.Row="0" Orientation="Horizontal" >
-                <Label Text="Сумма кредита:" FontSize="20" VerticalOptions="Center" />
-                <Entry x:Name="sum" FontSize="20" WidthRequest="180" TextChanged="ValueChanged" />
+
+            <!-- Сумма кредита -->
+            <StackLayout Grid.Row="0" Orientation="Horizontal" Margin="0,10">
+                <Label Text="Сумма кредита:" 
+                       FontSize="16" 
+                       TextColor="#ffffff"
+                       VerticalOptions="Center" 
+                       WidthRequest="140"/>
+                <Entry x:Name="sum" 
+                       FontSize="16" 
+                       WidthRequest="180" 
+                       BackgroundColor="#ffffff"
+                       TextColor="#000000"
+                       TextChanged="ValueChanged" />
             </StackLayout>
-            
-            <StackLayout Grid.Row="1" Orientation="Horizontal" >
-                <Label FontSize="20" Text="Срок(месяцы):" VerticalOptions="Center"/>
-                <Entry x:Name="srok" FontSize="20" WidthRequest="180" TextChanged="ValueChanged"/>
+
+            <!-- Срок кредита -->
+            <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,10">
+                <Label FontSize="16" 
+                       TextColor="#ffffff"
+                       Text="Срок(месяцы):" 
+                       VerticalOptions="Center"
+                       WidthRequest="140"/>
+                <Entry x:Name="srok" 
+                       FontSize="16" 
+                       WidthRequest="180"
+                       BackgroundColor="#ffffff"
+                       TextColor="#000000"
+                       TextChanged="ValueChanged"/>
             </StackLayout>
-            
-            <StackLayout Grid.Row="2" Orientation="Horizontal"  >
-                <Label Text="Вид платежа:" FontSize="20" VerticalOptions="Center"/>
-                <Picker x:Name="typePay" FontSize="20" WidthRequest="180" SelectedIndexChanged="typePay_SelectedIndexChanged">
+
+            <!-- Вид платежа -->
+            <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="0,10">
+                <Label Text="Вид платежа:" 
+                       FontSize="16" 
+                       TextColor="#ffffff"
+                       VerticalOptions="Center"
+                       WidthRequest="140"/>
+                <Picker x:Name="typePay" 
+                        FontSize="16" 
+                        WidthRequest="180"
+                        BackgroundColor="#ffffff"
+                        TextColor="#000000"
+                        SelectedIndexChanged="typePay_SelectedIndexChanged">
                     <Picker.Items>
                         <x:String>Аннуитетный</x:String>
                         <x:String>Дифференцированный</x:String>
@@ -34,37 +68,74 @@
                     </Picker.Items>
                 </Picker>
             </StackLayout>
-            
-            <!--блок с slider-->
-            <StackLayout Grid.Row="3" Orientation="Vertical">
-                <Label Text="Процентная ставка:" FontSize="20" VerticalOptions="Center"/>
-                <Slider x:Name="percentSl" ValueChanged="percentSl_ValueChanged" Minimum="0" Maximum="100" Value="5" HorizontalOptions="Center" WidthRequest="400"/>
-                <Label x:Name="percentTxt" FontSize="20" Text="5%" HorizontalOptions="Center"/>
+
+            <!-- Блок с slider -->
+            <StackLayout Grid.Row="3" Orientation="Vertical" Margin="0,10">
+                <Label Text="Процентная ставка:" 
+                       FontSize="16" 
+                       TextColor="#ffffff"
+                       VerticalOptions="Center"/>
+                <Slider x:Name="percentSl" 
+                        ValueChanged="percentSl_ValueChanged" 
+                        Minimum="0" 
+                        Maximum="100" 
+                        Value="5" 
+                        HorizontalOptions="Center" 
+                        WidthRequest="380"/>
+                <Label x:Name="percentTxt" 
+                       FontSize="16" 
+                       TextColor="#ffffff"
+                       Text="5%" 
+                       HorizontalOptions="Center"/>
             </StackLayout>
-            
-            <!--блок с вычисляемыми строками-->
-            <StackLayout Grid.Row="4" >
+
+            <!-- Блок с вычисляемыми строками -->
+            <StackLayout Grid.Row="4" Margin="0,10">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackLayout Grid.Row="0" Orientation="Horizontal">
-                        <Label Text="Ежемесячный платеж:"/>
-                        <Label x:Name="monthPay" Text="...."/>
+
+                    <StackLayout Grid.Row="0" Orientation="Horizontal" Margin="0,5">
+                        <Label Text="Ежемесячный платеж:" 
+                               FontSize="16" 
+                               TextColor="#ffffff"
+                               WidthRequest="170"/>
+                        <Label x:Name="monthPay" 
+                               Text="...."
+                               FontSize="16" 
+                               TextColor="#28a745"
+                               FontAttributes="Bold"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="1" Orientation="Horizontal">
-                        <Label Text="Общая сумма:"/>
-                        <Label x:Name="allMoney" Text="...."/>
+
+                    <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,5">
+                        <Label Text="Общая сумма:" 
+                               FontSize="16" 
+                               TextColor="#ffffff"
+                               WidthRequest="170"/>
+                        <Label x:Name="allMoney" 
+                               Text="...."
+                               FontSize="16" 
+                               TextColor="#28a745"
+                               FontAttributes="Bold"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="2" Orientation="Horizontal">
-                        <Label Text="Переплата:"/>
-                        <Label x:Name="overPay" Text="...."/>
+
+                    <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="0,5">
+                        <Label Text="Переплата:" 
+                               FontSize="16" 
+                               TextColor="#ffffff"
+                               WidthRequest="170"/>
+                        <Label x:Name="overPay" 
+                               Text="...."
+                               FontSize="16" 
+                               TextColor="#dc3545"
+                               FontAttributes="Bold"/>
                     </StackLayout>
                 </Grid>
             </StackLayout>
-            
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

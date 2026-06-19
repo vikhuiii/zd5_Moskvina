@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.CarouselPage4"
+             Title="Результат">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/mystyles.css" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="#2d2d2d" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" 
+                   Text="Вариант 4: Результат" 
+                   TextColor="#ffffff" 
+                   FontSize="24" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,10"/>
+
+            <Label Grid.Row="1" 
+                   Text="Нажмите кнопку для отображения данных" 
+                   TextColor="#aaaaaa" 
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,20"/>
+
+            <!-- Кнопка STATIC для отображения результата -->
+            <StackLayout Grid.Row="2" Spacing="15" Margin="20,0">
+                <Button x:Name="staticResultButton" 
+                        Text="STATIC - Показать результат"
+                        BackgroundColor="#28a745"
+                        TextColor="#ffffff"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        CornerRadius="5"
+                        HeightRequest="50"
+                        Clicked="OnStaticResultClicked"/>
+
+                <!-- Блок с результатом -->
+                <Frame BackgroundColor="#1a1a1a" 
+                       CornerRadius="10" 
+                       Padding="15"
+                       IsVisible="False"
+                       x:Name="resultFrame">
+                    <StackLayout Spacing="12">
+                        <Label Text="=== РЕЗУЛЬТАТ ===" 
+                               TextColor="#28a745" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               Margin="0,0,0,10"/>
+
+                        <!-- Выбранный элемент -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" 
+                                   Text="Выбранный элемент:" 
+                                   TextColor="#ffffff" 
+                                   FontSize="14"
+                                   WidthRequest="130"/>
+                            <Label Grid.Column="1" 
+                                   x:Name="selectedItemDisplay" 
+                                   Text="-" 
+                                   TextColor="#28a745" 
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                        </Grid>
+
+                        <!-- Расшифровка -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" 
+                                   Text="Расшифровка:" 
+                                   TextColor="#ffffff" 
+                                   FontSize="14"
+                                   WidthRequest="130"/>
+                            <Label Grid.Column="1" 
+                                   x:Name="descriptionDisplay" 
+                                   Text="-" 
+                                   TextColor="#17a2b8" 
+                                   FontSize="14"/>
+                        </Grid>
+
+                        <!-- Макс. значение слайдера -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" 
+                                   Text="Макс. значение:" 
+                                   TextColor="#ffffff" 
+                                   FontSize="14"
+                                   WidthRequest="130"/>
+                            <Label Grid.Column="1" 
+                                   x:Name="maxSliderValueDisplay" 
+                                   Text="-" 
+                                   TextColor="#ffc107" 
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                        </Grid>
+
+                        <!-- Имя пользователя -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" 
+                                   Text="Пользователь:" 
+                                   TextColor="#ffffff" 
+                                   FontSize="14"
+                                   WidthRequest="130"/>
+                            <Label Grid.Column="1" 
+                                   x:Name="usernameDisplay" 
+                                   Text="-" 
+                                   TextColor="#ffffff" 
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Информация о странице -->
+            <StackLayout Grid.Row="3" VerticalOptions="End" Margin="0,20">
+                <Label Text="← Свайпните влево/вправо для навигации →" 
+                       TextColor="#888888" 
+                       FontSize="14"
+                       HorizontalOptions="Center"/>
+                <Label Text="Страница 4 из 4" 
+                       TextColor="#888888" 
+                       FontSize="12"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

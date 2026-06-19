@@ -1,6 +1,5 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace zd4_moskvina_
 {
@@ -10,7 +9,8 @@ namespace zd4_moskvina_
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            // Оборачиваем WelcomePage в NavigationPage
+            MainPage = new NavigationPage(new WelcomePage());
         }
 
         protected override void OnStart()

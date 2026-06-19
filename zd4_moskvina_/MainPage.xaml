@@ -1,26 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:zd4_moskvina_"
             x:Class="zd4_moskvina_.MainPage">
-    <TabbedPage.Resources>
-        <StyleSheet Source="mystyles.css"/>
-    </TabbedPage.Resources>
-    <ContentPage Title="CSS">
-        
-        <StackLayout>
-            <Label x:Name="header" StyleId="header" Text="Subject"/>
-            <Label Text="MATHEMATICS" StyleClass="english"/>
-            <Label Text="МАТЕМАТИКА" StyleClass="russian"/>
-            <Label Text="LITERATURE" StyleClass="english"/>
-            <Label Text="ЛИТЕРАТУРА" StyleClass="russian"/>
-            <Label Text="ENGLISH LANGUAGE" StyleClass="english"/>
-            <Label Text="АНГЛИЙСКИЙ ЯЗЫК" StyleClass="russian"/>
-        </StackLayout>
-    </ContentPage>
-    <local:Page1 Title="Кредитный калькулятор"/>
-    <local:Page2 Title="Курсы валют"/>
-    <local:Welcom Title="Welcome"/>
+
+    <CarouselPage.Resources>
+        <StyleSheet Source="/mystyles.css" />
+    </CarouselPage.Resources>
+
+    <!-- Страница 1: Кнопки STATIC/HOVER/PRESSED -->
+    <local:CarouselPage1 Title="Кнопки"/>
+
+    <!-- Страница 2: Sliders -->
+    <local:CarouselPage2 Title="Слайдеры"/>
+
+    <!-- Страница 3: Dropdown и Switch -->
+    <local:CarouselPage3 Title="Выбор"/>
 
 
-</TabbedPage>
+</CarouselPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.CarouselPage2">
+    <ContentPage.Resources>
+        <StyleSheet Source="/mystyles.css" />
+    </ContentPage.Resources>
+    <Grid BackgroundColor="#2d2d2d" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Spacing="30" HorizontalOptions="Center">
+            <Slider Minimum="0" Maximum="100" Value="25" StyleClass="credit-slider" WidthRequest="120"/>
+            <Slider Minimum="0" Maximum="100" Value="50" StyleClass="credit-slider" WidthRequest="120"/>
+            <Slider Minimum="0" Maximum="100" Value="10" StyleClass="credit-slider" WidthRequest="120"/>
+            <StackLayout Orientation="Horizontal" Spacing="5">
+                <Slider x:Name="sliderLeft" Minimum="0" Maximum="100" Value="30" WidthRequest="55"/>
+                <Label Text="-" TextColor="#ffffff" VerticalOptions="Center"/>
+                <Slider x:Name="sliderRight" Minimum="0" Maximum="100" Value="70" WidthRequest="55"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="1" VerticalOptions="End" Margin="0,20">
+            <Label x:Name="userLabel" 
+                       Text="" 
+                       TextColor="#17a2b8" 
+                       FontSize="14"
+                       HorizontalOptions="Center"/>
+            <Label Text="← Свайпните влево/вправо для навигации →" 
+                       TextColor="#888888" 
+                       FontSize="14"
+                       HorizontalOptions="Center"/>
+            <Label Text="Страница 2 из 4" 
+                       TextColor="#888888" 
+                       FontSize="12"
+                       HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

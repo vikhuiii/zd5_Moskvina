@@ -1,47 +1,262 @@
-﻿ContentPage{
-    background-color:lightcyan;
-}
-
-/*
-stacklayout{
-    margin: 15;
-    padding: 10;
-}
-label{
-    color: red;
-}
-#header{
-    font-size:32;
-    font-weight:bold;
-}*/
-.english{
-    font-weight:bold;
-    font-size:large;
-    color:darkblue;
-}
-.russian {
-    font-size:medium;
-}
-stacklayout label{
-    font-family:Verdana;
-    
-}
-.entry{
+﻿/* Основные стили для всего приложения */
+/** {
     background-color: white;
-}
-.welcom{
-    background-color:darkseagreen;
-}
-.signBtn{
-    background-color:red;
-    font-family:'Times New Roman', Times, serif;
-    font-size:medium;
-    color:white;
+}*/
 
+/* Стили для ContentPage */
+^contentpage {
+    background-color: darkseagreen;
 }
-.labels{
-    font-family:'Times New Roman', Times, serif;
+
+/* Стили для Label */
+label {
+    color: white;
+    font-size: 16;
+}
+
+/* Стили для Entry */
+entry {
+    background-color: white;
+    color: black;
+    border-color: #808080;
+    border-width: 1;
+    padding: 8;
+    margin: 5;
+}
+
+/* Стили для Picker */
+picker {
+    background-color: white;
+    color: black;
+}
+
+/* Стили для Slider */
+slider {
+    margin: 10;
+}
+
+/* Стили для кнопки Sign In */
+#signInButton {
+    background-color: indianred;
+    color: white;
+    font-size: 18;
+    font-weight: bold;
+    border-radius: 5;
+    padding: 10;
+    margin: 10;
+}
+
+/* Стили для кнопок STATIC, HOVER, PRESSED */
+.static-button {
+    background-color: lightgreen;
+    color: white;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+.hover-button {
+    background-color: green;
+    color: white;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+.pressed-button {
+    background-color: darkgreen;
+    color: white;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+/* Серые кнопки с тенью */
+.gray-static {
+    background-color: lightgray;
+    color: white;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+.gray-hover {
+    background-color: darkgray;
+    color: white;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+.gray-pressed {
+    background-color: gray;
+    color: white;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+/* Белые кнопки с контуром */
+.white-static {
+    background-color: white;
+    color: black;
+    border-color: gray;
+    border-width: 2;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+.white-hover {
+    background-color: whitesmoke;
+    color: black;
+    border-color: gray;
+    border-width: 2;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+.white-pressed {
+    background-color: lightgray;
+    color: black;
+    border-color: gray;
+    border-width: 2;
+    border-radius: 50;
+    padding: 10;
+    margin: 5;
+    width: 100;
+}
+
+/* Стили для Welcome страницы */
+#welcomeTitle {
+    color: white;
+    font-size: 32;
+    font-weight: bold;
+    text-align: center;
+    margin: 20;
+}
+
+#usernameEntry {
+    background-color: white;
+    color: black;
+    margin: 5 20;
+    padding: 10;
+    border-color: white;
+    border-width: 1;
+}
+
+#passwordEntry {
+    background-color: white;
+    color: black;
+    margin: 5 20;
+    padding: 10;
+    border-color: white;
+    border-width: 1;
+}
+
+/* Стили для чекбокса */
+checkbox {
+    color: white;
+}
+
+/* Стили для ссылки "I forgot!" */
+#forgotLabel {
+    color: white;
+    font-size: 14;
+    text-decoration: underline;
+}
+
+/* Стили для "Remember me" */
+#rememberLabel {
+    color: white;
+    font-size: 14;
+}
+
+/* Стили для Dropdown */
+.dropdown-button {
+    background-color: #28a745;
     font-size:small;
-    color:gray;
+    color: white;
+    padding: 10;
+    margin: 5;
 }
 
+/* Стили для Switch */
+.switch-on {
+    color: white;
+}
+
+.switch-off {
+    color: black;
+}
+
+.switch-dark-on {
+    color: black;
+}
+
+.switch-dark-off {
+    color: black;
+}
+
+/* Стили для Slider с зеленым значением */
+.credit-slider {
+    color: lawngreen;
+}
+
+/* Стили для страницы результатов */
+#resultTitle {
+    color: white;
+    font-size: 24;
+    font-weight: bold;
+    text-align: center;
+    margin: 20;
+}
+
+#resultLabel {
+    color: white;
+    font-size: 18;
+    text-align: center;
+    margin: 10;
+}
+#resultFrame {
+    background-color: #1a1a1a;
+    border-radius: 10;
+    padding: 15;
+    margin: 10;
+}
+
+.result-label {
+    color: #ffffff;
+    font-size: 14;
+}
+
+.result-value {
+    color: #28a745;
+    font-size: 14;
+    font-weight: bold;
+}
+
+.result-description {
+    color: #17a2b8;
+    font-size: 14;
+}
+
+.result-max-slider {
+    color: #ffc107;
+    font-size: 14;
+    font-weight: bold;
+}
+.selected-value {
+    color: #28a745;
+    font-size: 12;
+    margin-top: 4;
+}

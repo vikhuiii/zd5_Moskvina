@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.ButtonStylesPage"
+             Title="Стили">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/mystyles.css" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="#2d2d2d">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <StackLayout Padding="10">
+
+
+                    <!-- Первая строка: 4 объекта -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Зеленые кнопки -->
+                        <StackLayout Grid.Column="0" Spacing="5" HorizontalOptions="Center">
+                           
+                            <Button Text="STATIC" StyleClass="static-button" HeightRequest="35"/>
+                            <Button Text="HOVER" StyleClass="hover-button" HeightRequest="35"/>
+                            <Button Text="PRESSED" StyleClass="pressed-button" HeightRequest="35"/>
+                        </StackLayout>
+
+                        <!-- Серые кнопки с тенью -->
+                        <StackLayout Grid.Column="1" Spacing="5" HorizontalOptions="Center">
+                          
+                            <Button Text="STATIC" StyleClass="gray-static" HeightRequest="35"/>
+                            <Button Text="HOVER" StyleClass="gray-hover" HeightRequest="35"/>
+                            <Button Text="PRESSED" StyleClass="gray-pressed" HeightRequest="35"/>
+                        </StackLayout>
+
+                        <!-- Белые кнопки с контуром -->
+                        <StackLayout Grid.Column="2" Spacing="5" HorizontalOptions="Center">
+                         
+                            <Button Text="STATIC" StyleClass="white-static" HeightRequest="35"/>
+                            <Button Text="HOVER" StyleClass="white-hover" HeightRequest="35"/>
+                            <Button Text="PRESSED" StyleClass="white-pressed" HeightRequest="35"/>
+                        </StackLayout>
+
+                        <!-- Sliders -->
+                        <StackLayout Grid.Column="3" Spacing="10" HorizontalOptions="Center">
+                            <Slider Minimum="0" Maximum="100" Value="25" StyleClass="credit-slider" WidthRequest="120"/>
+                            <Slider Minimum="0" Maximum="100" Value="50" StyleClass="credit-slider" WidthRequest="120"/>
+                            <Slider Minimum="0" Maximum="100" Value="10" StyleClass="credit-slider" WidthRequest="120"/>
+                            <StackLayout Orientation="Horizontal" Spacing="5">
+                                <Slider x:Name="sliderLeft" Minimum="0" Maximum="100" Value="30" WidthRequest="55"/>
+                                <Label Text="-" TextColor="#ffffff" VerticalOptions="Center"/>
+                                <Slider x:Name="sliderRight" Minimum="0" Maximum="100" Value="70" WidthRequest="55"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+
+                    <!-- Вторая строка: 5 объектов -->
+                    <Grid Margin="0,20,0,0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Dropdown -->
+                        <StackLayout Grid.Column="0" Spacing="5" HorizontalOptions="Center">
+                           
+                            
+                            <Picker x:Name="dropdownPicker" 
+                                    Title="DROPDOWN"
+                                    StyleClass="dropdown-button" 
+                                    HeightRequest="35" 
+                                    WidthRequest="120"
+                                    SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                                <Picker.Items>
+                                    <x:String>Select one</x:String>
+                                    <x:String>Select two</x:String>
+                                    <x:String>Select three</x:String>
+                                    <x:String>Select four</x:String>
+                                </Picker.Items>
+                            </Picker>
+                            <Label x:Name="selectedValueLabel" Text="" TextColor="#28a745" FontSize="12" HorizontalOptions="Center"/>
+                        </StackLayout>
+
+                        <!-- Switch ON (малиновые) -->
+                        <StackLayout Grid.Column="1" Spacing="5" HorizontalOptions="Center">
+                            
+                            <Switch IsToggled="True" StyleClass="switch-on"/>
+                            <Switch IsToggled="True" StyleClass="switch-on"/>
+                            <Switch IsToggled="True" StyleClass="switch-on"/>
+                        </StackLayout>
+
+                        <!-- Switch OFF (светло-серые) -->
+                        <StackLayout Grid.Column="2" Spacing="5" HorizontalOptions="Center">
+                            
+                            <Switch IsToggled="False" StyleClass="switch-off"/>
+                            <Switch IsToggled="False" StyleClass="switch-off"/>
+                            <Switch IsToggled="False" StyleClass="switch-off"/>
+                        </StackLayout>
+
+                        <!-- Switch ON темные -->
+                        <StackLayout Grid.Column="3" Spacing="5" HorizontalOptions="Center">
+                          
+                            <Switch IsToggled="True" StyleClass="switch-dark-on"/>
+                            <Switch IsToggled="True" StyleClass="switch-dark-on"/>
+                            <Switch IsToggled="True" StyleClass="switch-dark-on"/>
+                        </StackLayout>
+
+                        <!-- Switch OFF темные -->
+                        <StackLayout Grid.Column="4" Spacing="5" HorizontalOptions="Center">
+                           
+                            <Switch IsToggled="False" StyleClass="switch-dark-off"/>
+                            <Switch IsToggled="False" StyleClass="switch-dark-off"/>
+                            <Switch IsToggled="False" StyleClass="switch-dark-off"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <!-- Кнопка STATIC для отображения результата (4 вариант) -->
+                    <StackLayout Margin="0,30,0,10">
+                        <Button x:Name="staticResultButton" 
+                                Text="STATIC - Показать результат"
+                                BackgroundColor="#28a745"
+                                TextColor="#ffffff"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                CornerRadius="5"
+                                HeightRequest="50"
+                                Clicked="OnStaticResultClicked"/>
+
+                        <!-- Блок для отображения результата -->
+                        <Frame BackgroundColor="#1a1a1a" 
+                               CornerRadius="10" 
+                               Padding="15"
+                               Margin="0,10,0,0"
+                               IsVisible="False"
+                               x:Name="resultFrame">
+                            <StackLayout>
+                                <Label Text="Результат" 
+                                       TextColor="#ffffff" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       Margin="0,0,0,10"/>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Выбранный элемент:" 
+                                           TextColor="#ffffff" 
+                                           FontSize="14"
+                                           WidthRequest="150"/>
+                                    <Label x:Name="selectedItemDisplay" 
+                                           Text="-" 
+                                           TextColor="#28a745" 
+                                           FontSize="14"
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Расшифровка:" 
+                                           TextColor="#ffffff" 
+                                           FontSize="14"
+                                           WidthRequest="150"/>
+                                    <Label x:Name="descriptionDisplay" 
+                                           Text="-" 
+                                           TextColor="#17a2b8" 
+                                           FontSize="14"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Макс. значение слайдера:" 
+                                           TextColor="#ffffff" 
+                                           FontSize="14"
+                                           WidthRequest="150"/>
+                                    <Label x:Name="maxSliderValueDisplay" 
+                                           Text="-" 
+                                           TextColor="#ffc107" 
+                                           FontSize="14"
+                                           FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Имя пользователя:" 
+                                           TextColor="#ffffff" 
+                                           FontSize="14"
+                                           WidthRequest="150"/>
+                                    <Label x:Name="usernameDisplay" 
+                                           Text="-" 
+                                           TextColor="#ffffff" 
+                                           FontSize="14"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

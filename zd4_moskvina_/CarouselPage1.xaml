@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.CarouselPage1">
+    <ContentPage.Resources>
+        <StyleSheet Source="/mystyles.css" />
+    </ContentPage.Resources>
+    <Grid BackgroundColor="#2d2d2d" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Зеленые кнопки -->
+        <StackLayout Grid.Row="0" Spacing="3" VerticalOptions="Center" Padding="5">
+
+            <Button Text="STATIC" StyleClass="static-button" HeightRequest="50" WidthRequest="100"/>
+            <Button Text="HOVER" StyleClass="hover-button" HeightRequest="50" WidthRequest="100"/>
+            <Button Text="PRESSED" StyleClass="pressed-button" HeightRequest="50" WidthRequest="100"/>
+        </StackLayout>
+
+        <!-- Серые кнопки с тенью -->
+        <StackLayout Grid.Row="1" Spacing="3" VerticalOptions="Center" Padding="5">
+
+            <Button Text="STATIC" StyleClass="gray-static" HeightRequest="50" WidthRequest="100"/>
+            <Button Text="HOVER" StyleClass="gray-hover" HeightRequest="50" WidthRequest="100"/>
+            <Button Text="PRESSED" StyleClass="gray-pressed" HeightRequest="50" WidthRequest="100"/>
+        </StackLayout>
+
+        <!-- Белые кнопки с контуром -->
+        <StackLayout Grid.Row="2" Spacing="3" VerticalOptions="Center" Padding="5">
+
+            <Button Text="STATIC" StyleClass="white-static" HeightRequest="50" WidthRequest="100"/>
+            <Button Text="HOVER" StyleClass="white-hover" HeightRequest="50" WidthRequest="100"/>
+            <Button Text="PRESSED" StyleClass="white-pressed" HeightRequest="50" WidthRequest="100"/>
+        </StackLayout>
+        <StackLayout Grid.Row="3" VerticalOptions="End" Margin="0,20">
+            <Label x:Name="userLabel" 
+                       Text="" 
+                       TextColor="#17a2b8" 
+                       FontSize="14"
+                       HorizontalOptions="Center"/>
+            <Label Text="← Свайпните влево/вправо для навигации →" 
+                       TextColor="#888888" 
+                       FontSize="14"
+                       HorizontalOptions="Center"/>
+            <Label Text="Страница 1 из 4" 
+                       TextColor="#888888" 
+                       FontSize="12"
+                       HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

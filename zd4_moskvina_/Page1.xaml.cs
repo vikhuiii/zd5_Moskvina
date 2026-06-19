@@ -12,11 +12,12 @@ namespace zd4_moskvina_
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Page1 : ContentPage
     {
-        public Page1()
+        string userData;
+        // Метод для получения данных пользователя
+        public void SetUserData(string username)
         {
-            InitializeComponent();
-            typePay.SelectedIndex = 0;
-            CalculateCredit();
+            userData = username;
+            // Можно отобразить имя пользователя где-то на странице
         }
 
         private void percentSl_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -34,22 +35,22 @@ namespace zd4_moskvina_
         {
             try
             {
-                //сумма кредита
+                // Сумма кредита
                 if (!double.TryParse(sum.Text, out double credit) || credit <= 0)
                 {
                     ClearResult();
                     return;
                 }
-                //срок кредита в месяцах
+                // Срок кредита в месяцах
                 if (!int.TryParse(srok.Text, out int month) || month <= 0)
                 {
                     ClearResult();
                     return;
                 }
-                //получаем процентную ставку
-                double annualRate = percentSl.Value / 100; //в десятичном виде
+                // Получаем процентную ставку
+                double annualRate = percentSl.Value / 100;
                 double monthlyRate = annualRate / 12;
-                //получаем тип платежа
+                // Получаем тип платежа
                 string paymentType = typePay.SelectedItem?.ToString();
                 double monthlyPayment = 0;
                 double totalPayment = 0;
@@ -58,29 +59,29 @@ namespace zd4_moskvina_
                 switch (paymentType)
                 {
                     case "Аннуитетный":
-                        CalculateAnnuit(credit, month, monthlyRate, out monthlyPayment,out totalPayment, out overPayment);
+                        CalculateAnnuit(credit, month, monthlyRate, out monthlyPayment, out totalPayment, out overPayment);
                         break;
                     case "Дифференцированный":
                         CalculateDifferentiated(credit, month, monthlyRate, out monthlyPayment, out totalPayment, out overPayment);
                         break;
                     case "Буллетный":
-                        CalculateBullet(credit, month, monthlyRate,  out monthlyPayment, out totalPayment, out overPayment);
+                        CalculateBullet(credit, month, monthlyRate, out monthlyPayment, out totalPayment, out overPayment);
                         break;
                 }
-                //результаты с округлением
+                // Результаты с округлением
                 monthPay.Text = monthlyPayment.ToString("F2");
                 allMoney.Text = totalPayment.ToString("F2");
                 overPay.Text = overPayment.ToString("F2");
             }
             catch (Exception ex)
             {
-                DisplayAlert("Oшибка", "Произошла ошибка: " + ex.Message, "Ok");
+                DisplayAlert("Ошибка", "Произошла ошибка: " + ex.Message, "Ok");
                 ClearResult();
             }
         }
+
         private void CalculateAnnuit(double amount, int months, double monthlyRate, out double monthlyPayment, out double totalPayment, out double overPayment)
         {
-            //аннуитетный платеж
             if (monthlyRate == 0)
             {
                 monthlyPayment = amount / months;
@@ -94,18 +95,15 @@ namespace zd4_moskvina_
             totalPayment = monthlyPayment * months;
             overPayment = totalPayment - amount;
         }
+
         private void CalculateDifferentiated(double amount, int months, double monthlyRate, out double monthlyPayment, out double totalPayment, out double overPayment)
         {
-            //дифференцированный платеж
             double principalPerMonth = amount / months;
             double firstMonthPayment = principalPerMonth + (amount * monthlyRate);
             double lastMonthPayment = principalPerMonth + (principalPerMonth * monthlyRate);
-            //средний платеж для отображения
             monthlyPayment = (firstMonthPayment + lastMonthPayment) / 2;
-            //общая сумма платежей через сумму арифметической прогрессии
-            double totalPrincipal = amount;
-            double totalInterest = 0;
 
+            double totalInterest = 0;
             for (int i = 0; i < months; i++)
             {
                 double remainingPrincipal = amount - (principalPerMonth * i);
@@ -113,18 +111,18 @@ namespace zd4_moskvina_
                 totalInterest += interest;
             }
 
-            totalPayment = totalPrincipal + totalInterest;
+            totalPayment = amount + totalInterest;
             overPayment = totalPayment - amount;
         }
+
         private void CalculateBullet(double amount, int months, double monthlyRate, out double monthlyPayment, out double totalPayment, out double overPayment)
         {
-            //буллетный платеж
             double monthlyInterest = amount * monthlyRate;
             monthlyPayment = monthlyInterest;
-
             totalPayment = amount + (monthlyInterest * months);
             overPayment = totalPayment - amount;
         }
+
         private void ClearResult()
         {
             monthPay.Text = "....";
