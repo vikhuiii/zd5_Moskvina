@@ -3,8 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:zd4_moskvina_"
             x:Class="zd4_moskvina_.MainPage">
-
+    <TabbedPage.Resources>
+        <StyleSheet Source="mystyles.css"/>
+    </TabbedPage.Resources>
+    <ContentPage Title="CSS">
+        
+        <StackLayout>
+            <Label x:Name="header" StyleId="header" Text="Subject"/>
+            <Label Text="MATHEMATICS" StyleClass="english"/>
+            <Label Text="МАТЕМАТИКА" StyleClass="russian"/>
+            <Label Text="LITERATURE" StyleClass="english"/>
+            <Label Text="ЛИТЕРАТУРА" StyleClass="russian"/>
+            <Label Text="ENGLISH LANGUAGE" StyleClass="english"/>
+            <Label Text="АНГЛИЙСКИЙ ЯЗЫК" StyleClass="russian"/>
+        </StackLayout>
+    </ContentPage>
     <local:Page1 Title="Кредитный калькулятор"/>
     <local:Page2 Title="Курсы валют"/>
+    <local:Welcom Title="Welcome"/>
+
 
 </TabbedPage>

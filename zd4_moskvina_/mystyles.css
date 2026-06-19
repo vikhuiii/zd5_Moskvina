@@ -1,0 +1,47 @@
+﻿ContentPage{
+    background-color:lightcyan;
+}
+
+/*
+stacklayout{
+    margin: 15;
+    padding: 10;
+}
+label{
+    color: red;
+}
+#header{
+    font-size:32;
+    font-weight:bold;
+}*/
+.english{
+    font-weight:bold;
+    font-size:large;
+    color:darkblue;
+}
+.russian {
+    font-size:medium;
+}
+stacklayout label{
+    font-family:Verdana;
+    
+}
+.entry{
+    background-color: white;
+}
+.welcom{
+    background-color:darkseagreen;
+}
+.signBtn{
+    background-color:red;
+    font-family:'Times New Roman', Times, serif;
+    font-size:medium;
+    color:white;
+
+}
+.labels{
+    font-family:'Times New Roman', Times, serif;
+    font-size:small;
+    color:gray;
+}
+

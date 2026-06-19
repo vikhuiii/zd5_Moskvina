@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd4_moskvina_.Welcom">
+    
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackLayout Grid.Row="0" HeightRequest="100" Orientation="Horizontal" >
+            <Label Text="Welcome" HorizontalOptions="Center" VerticalOptions="Center" Margin="20" />
+        </StackLayout>
+        
+        <StackLayout Grid.Row="1" >
+            <Entry x:Name="userTxt" Placeholder="Username" StyleClass="entry"/>
+            <Entry x:Name="passTxt" IsPassword="True" Placeholder="Password" StyleClass="entry"/>
+        </StackLayout>
+        
+        <StackLayout Grid.Row="2" Margin="10">
+            <Button Text="Sign in" StyleClass="signBtn"/>
+        </StackLayout>
+        
+        <StackLayout Grid.Row="3" Orientation="Horizontal" >
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            
+            <StackLayout Grid.Column="0" Orientation="Horizontal" >
+                <CheckBox x:Name="rememberChk" VerticalOptions="Center"/>
+                <Label Text="Remember me" VerticalOptions="Center" StyleClass="labels"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Column="2" Orientation="Horizontal">
+                <Label x:Name="forgot" Text="I forgot!" VerticalOptions="Center" StyleClass="labels"/>
+            </StackLayout>
+            </Grid>
+        </StackLayout>
+        
+    </Grid>
+</ContentPage>
